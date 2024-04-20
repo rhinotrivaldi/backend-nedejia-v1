@@ -20,22 +20,23 @@ class Listing extends Model
         'wifi_speed',
         'max_person',
         'price_per_day',
-        'attachment',
+        'attachments',
         'full_support_available',
         'gym_area_available',
         'mini_cafe_available',
         'cinema_available',
     ];
 
-    protected $cast = [
-        'attachment' => 'array'
+    protected $casts = [
+        'attachments' => 'array'
     ];
 
     public function getRouteKeyName() {
         return 'slug';
     }
 
-    public function setTitleAtrribute($value) {
+    public function setTitleAttribute($value)
+    {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
